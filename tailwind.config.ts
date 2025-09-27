@@ -22,10 +22,20 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          glow: "hsl(var(--secondary-glow))",
+        },
+        eco: {
+          green: "hsl(var(--eco-green))",
+          "green-light": "hsl(var(--eco-green-light))",
+          blue: "hsl(var(--eco-blue))",
+          "blue-light": "hsl(var(--eco-blue-light))",
+          mint: "hsl(var(--eco-mint))",
+          sage: "hsl(var(--eco-sage))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -63,6 +73,21 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        "gradient-eco-primary": "var(--gradient-eco-primary)",
+        "gradient-eco-secondary": "var(--gradient-eco-secondary)",
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-card": "var(--gradient-card)",
+      },
+      boxShadow: {
+        "eco": "var(--shadow-eco)",
+        "eco-blue": "var(--shadow-eco-blue)",
+        "soft": "var(--shadow-soft)",
+      },
+      transitionTimingFunction: {
+        "smooth": "var(--transition-smooth)",
+        "spring": "var(--transition-spring)",
+      },
       keyframes: {
         "accordion-down": {
           from: {
@@ -80,10 +105,20 @@ export default {
             height: "0",
           },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-eco": {
+          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--eco-green) / 0.4)" },
+          "50%": { boxShadow: "0 0 0 10px hsl(var(--eco-green) / 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 3s ease-in-out infinite",
+        "pulse-eco": "pulse-eco 2s infinite",
       },
     },
   },
