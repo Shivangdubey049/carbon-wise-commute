@@ -14,7 +14,105 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      achievements: {
+        Row: {
+          achievement_type: string
+          description: string | null
+          earned_at: string
+          id: string
+          points: number | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          achievement_type: string
+          description?: string | null
+          earned_at?: string
+          id?: string
+          points?: number | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          achievement_type?: string
+          description?: string | null
+          earned_at?: string
+          id?: string
+          points?: number | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      activities: {
+        Row: {
+          activity_type: string
+          calories_burned: number | null
+          co2_saved_kg: number | null
+          created_at: string
+          distance_km: number | null
+          duration_minutes: number | null
+          end_location: string | null
+          id: string
+          route_data: Json | null
+          start_location: string | null
+          user_id: string
+        }
+        Insert: {
+          activity_type: string
+          calories_burned?: number | null
+          co2_saved_kg?: number | null
+          created_at?: string
+          distance_km?: number | null
+          duration_minutes?: number | null
+          end_location?: string | null
+          id?: string
+          route_data?: Json | null
+          start_location?: string | null
+          user_id: string
+        }
+        Update: {
+          activity_type?: string
+          calories_burned?: number | null
+          co2_saved_kg?: number | null
+          created_at?: string
+          distance_km?: number | null
+          duration_minutes?: number | null
+          end_location?: string | null
+          id?: string
+          route_data?: Json | null
+          start_location?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

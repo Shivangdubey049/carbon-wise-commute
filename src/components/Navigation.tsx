@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Leaf, Menu, Navigation2, BarChart3, Users, Award } from "lucide-react";
+import { Leaf, Menu, Navigation2, BarChart3, Users, Award, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useProfile } from "@/hooks/useProfile";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const { profile } = useProfile();
 
   const navItems = [
     { name: "Features", href: "#features", icon: Navigation2 },
@@ -44,12 +49,34 @@ const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="eco-ghost">
-              Sign In
-            </Button>
-            <Button variant="hero">
-              Get Started
-            </Button>
+            {user ? (
+              <div className="flex items-center gap-4">
+                <span className="text-sm text-muted-foreground">
+                  Welcome, {profile?.full_name || user.email?.split('@')[0]}!
+                </span>
+                <Button 
+                  variant="eco-ghost" 
+                  onClick={signOut}
+                  className="flex items-center gap-2"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button variant="eco-ghost">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/auth">
+                  <Button variant="hero">
+                    Get Started
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu */}
@@ -86,12 +113,34 @@ const Navigation = () => {
                 </div>
 
                 <div className="mt-8 space-y-4">
-                  <Button variant="eco-outline" className="w-full">
-                    Sign In
-                  </Button>
-                  <Button variant="hero" className="w-full">
-                    Get Started
-                  </Button>
+                  {user ? (
+                    <div className="space-y-4">
+                      <p className="text-sm text-muted-foreground">
+                        Welcome, {profile?.full_name || user.email?.split('@')[0]}!
+                      </p>
+                      <Button 
+                        variant="eco-outline" 
+                        onClick={signOut}
+                        className="w-full flex items-center gap-2"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        Sign Out
+                      </Button>
+                    </div>
+                  ) : (
+                    <>
+                      <Link to="/auth">
+                        <Button variant="eco-outline" className="w-full">
+                          Sign In
+                        </Button>
+                      </Link>
+                      <Link to="/auth">
+                        <Button variant="hero" className="w-full">
+                          Get Started
+                        </Button>
+                      </Link>
+                    </>
+                  )}
                 </div>
               </SheetContent>
             </Sheet>
