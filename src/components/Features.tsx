@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import FeatureModal from "./FeatureModal";
 import { 
   Route, 
   Leaf, 
@@ -14,6 +16,14 @@ import {
 } from "lucide-react";
 
 const Features = () => {
+  const [selectedFeature, setSelectedFeature] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleExploreFeature = (feature: any) => {
+    setSelectedFeature(feature);
+    setIsModalOpen(true);
+  };
+
   const features = [
     {
       icon: Route,
@@ -105,7 +115,11 @@ const Features = () => {
                   ))}
                 </div>
                 
-                <Button variant="eco-ghost" className="w-full group-hover:bg-eco-mint">
+                <Button 
+                  variant="eco-ghost" 
+                  className="w-full group-hover:bg-eco-mint"
+                  onClick={() => handleExploreFeature(feature)}
+                >
                   Explore Feature
                 </Button>
               </Card>
@@ -119,6 +133,12 @@ const Features = () => {
             Join the Green Movement
           </Button>
         </div>
+
+        <FeatureModal 
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          feature={selectedFeature}
+        />
       </div>
     </section>
   );
