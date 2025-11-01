@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import RouteDemo from "@/components/RouteDemo";
+import RoutePlanner from "@/components/RoutePlanner";
 import Impact from "@/components/Impact";
 import Footer from "@/components/Footer";
 import UserGreeting from "@/components/UserGreeting";
@@ -28,6 +29,9 @@ const Index = () => {
         <Hero />
         <section id="features">
           <Features />
+        </section>
+        <section id="route-planner">
+          <RoutePlanner />
         </section>
         <section id="demo">
           <RouteDemo />

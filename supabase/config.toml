@@ -2,3 +2,9 @@ project_id = "tmjpiwejglgyznvwjozp"
 
 [functions.get-weather]
 verify_jwt = false
+
+[functions.geocode]
+verify_jwt = false
+
+[functions.calculate-route]
+verify_jwt = false

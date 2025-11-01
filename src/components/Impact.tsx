@@ -71,7 +71,7 @@ const Impact = () => {
             <span className="text-eco-green block">Environmental Change</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Join thousands of users worldwide who are making a difference one commute at a time. 
+            Join thousands of users worldwide who are making a difference one trip at a time. 
             Together, we're building a more sustainable future.
           </p>
         </div>
@@ -117,7 +117,7 @@ const Impact = () => {
               Aligned with UN Sustainable Development Goals
             </h3>
             <p className="text-muted-foreground">
-              GreenCommute directly contributes to global sustainability targets
+              EcoTrail directly contributes to global sustainability targets
             </p>
           </div>
           
@@ -165,11 +165,19 @@ const Impact = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" className="flex-1">
+              <Button 
+                variant="hero" 
+                className="flex-1"
+                onClick={() => document.getElementById('route-planner')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <Award className="w-4 h-4 mr-2" />
                 Start My Impact Journey
               </Button>
-              <Button variant="eco-outline" className="flex-1">
+              <Button 
+                variant="eco-outline" 
+                className="flex-1"
+                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Learn More
               </Button>
             </div>

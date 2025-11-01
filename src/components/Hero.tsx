@@ -36,8 +36,8 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-8">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Green
-            <span className="text-eco-mint">Commute</span>
+            Eco
+            <span className="text-eco-mint">Trail</span>
           </h1>
           <p className="text-xl sm:text-2xl text-white/90 mb-4 max-w-3xl mx-auto leading-relaxed">
             Revolutionize your daily travel with eco-friendly route planning
@@ -49,10 +49,20 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="text-lg px-8 py-4"
+            onClick={() => document.getElementById('route-planner')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Plan Your Green Route
           </Button>
-          <Button variant="eco-outline" size="lg" className="text-lg px-8 py-4">
+          <Button 
+            variant="eco-outline" 
+            size="lg" 
+            className="text-lg px-8 py-4"
+            onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Learn More
           </Button>
         </div>

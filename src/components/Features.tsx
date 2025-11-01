@@ -81,7 +81,7 @@ const Features = () => {
             <span className="text-eco-green block">Sustainable Travel</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            GreenCommute combines intelligent route planning with environmental consciousness 
+            EcoTrail combines intelligent route planning with environmental consciousness 
             to transform how you move through the city.
           </p>
         </div>
@@ -128,7 +128,12 @@ const Features = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg" className="px-8 py-4">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="px-8 py-4"
+            onClick={() => document.getElementById('route-planner')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             <Users className="w-5 h-5 mr-2" />
             Join the Green Movement
           </Button>
