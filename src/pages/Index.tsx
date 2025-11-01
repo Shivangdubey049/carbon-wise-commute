@@ -5,6 +5,8 @@ import RouteDemo from "@/components/RouteDemo";
 import Impact from "@/components/Impact";
 import Footer from "@/components/Footer";
 import UserGreeting from "@/components/UserGreeting";
+import SpeedTracker from "@/components/SpeedTracker";
+import WeatherDisplay from "@/components/WeatherDisplay";
 import { useAuth } from "@/contexts/AuthContext";
 
 const Index = () => {
@@ -17,6 +19,10 @@ const Index = () => {
         {user && (
           <div className="container mx-auto px-4 pt-20">
             <UserGreeting />
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <SpeedTracker />
+              <WeatherDisplay />
+            </div>
           </div>
         )}
         <Hero />
